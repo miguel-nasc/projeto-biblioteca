@@ -19,6 +19,7 @@ public interface LivroControllerDocs {
                 @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)})
     public LivroDTO id(Long id);
 
+
     @Operation(summary = "Get All Books", description = "Getting All Bokks", tags = {"Books"},
         responses = {
                 @ApiResponse(description = "Sucess", responseCode = "200",
@@ -30,6 +31,41 @@ public interface LivroControllerDocs {
                 @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)})
     public LivroDTO all();
 
+
+    @Operation(summary = "Delete a book", description = "Deleting a book", tags = {"Book"},
+    responses = {
+            @ApiResponse(description = "Sucess",
+                    responseCode = "204", content = @Content(schema = @Schema(implementation = LivroDTO.class))),
+            @ApiResponse(description = "Not Content", responseCode = "204", content = @Content),
+            @ApiResponse(description = "Bad Request", responseCode = "204", content = @Content),
+            @ApiResponse(description = "Unauthorized", responseCode = "404", content = @Content),
+            @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
+            @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)})
+    public void delete(Long id);
+
+
+    @Operation(summary = "Delete a book", description = "Deleting a book", tags = {"Book"},
+            responses = {
+                    @ApiResponse(description = "Sucess",
+                            responseCode = "204", content = @Content(schema = @Schema(implementation = LivroDTO.class))),
+                    @ApiResponse(description = "Not Content", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Bad Request", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Unauthorized", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)})
+    public LivroDTO save(LivroDTO livroDTO);
+
+
+    @Operation(summary = "Delete a book", description = "Deleting a book", tags = {"Book"},
+            responses = {
+                    @ApiResponse(description = "Sucess",
+                            responseCode = "204", content = @Content(schema = @Schema(implementation = LivroDTO.class))),
+                    @ApiResponse(description = "Not Content", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Bad Request", responseCode = "204", content = @Content),
+                    @ApiResponse(description = "Unauthorized", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)})
+    public LivroDTO update(LivroDTO livroDTO);
 
 
 
